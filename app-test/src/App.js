@@ -8,7 +8,7 @@ function App(props) {
 
       <header className="App-header">
         <span className="red">My First React App</span>
-        <h3>Hello, {props.name}</h3>
+        <h3>Hello, Tima{props.name}</h3>
         <Message text="Edison" />
       </header>
     </div>
