@@ -6,7 +6,7 @@ const AUTHORS = {
   ME: 'Me',
   BOT: 'Bot'
 }
-
+//testcommit
 function App(props) {
   const [messageList, setMessageList] = useState([]);
 
@@ -18,7 +18,6 @@ function App(props) {
 
   const handleMessageSubmit = (e) => {
     e.preventDefault()
-
     setMessageList((currentMessageList) => [
       ...currentMessageList,
       { author: AUTHORS.ME, text: inputValue },
