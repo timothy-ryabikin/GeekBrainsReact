@@ -70,7 +70,13 @@
   }
 
   .chat {
+    display: grid;
+    grid-template-rows: 80% 20%;
     width: 90%;
+  }
+
+  .chat__block{
+    grid-row: 2;
   }
 
   .item{
@@ -80,5 +86,11 @@
   .item:hover{
     background-color:hotpink;
     cursor: pointer;
+  }
+
+  .menu{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;   
+    list-style-type: none;
   }
 

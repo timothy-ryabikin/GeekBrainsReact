@@ -95,7 +95,16 @@ button:hover {
 }
 
 .chat {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 80% 20%;
+      grid-template-rows: 80% 20%;
   width: 90%;
+}
+
+.chat__block {
+  -ms-grid-row: 2;
+  grid-row: 2;
 }
 
 .item {
@@ -105,5 +114,13 @@ button:hover {
 .item:hover {
   background-color: hotpink;
   cursor: pointer;
+}
+
+.menu {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 20% 20% 20%;
+      grid-template-columns: 20% 20% 20% 20%;
+  list-style-type: none;
 }
 /*# sourceMappingURL=App.css.map */

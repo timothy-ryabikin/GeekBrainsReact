@@ -1,6 +1,6 @@
 import './App.css';
 
-function Mesenger(props) {
+export default function Mesenger(props) {
     return (
         <div>
             <span> {props.author}: {props.text} </span>
@@ -8,4 +8,3 @@ function Mesenger(props) {
     );
 }
 
-export default Mesenger;
