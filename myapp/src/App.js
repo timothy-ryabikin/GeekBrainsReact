@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Mesenger from './Message';
+import Button from '@material-ui/core/Button';
+import { List, ListItem, TextField } from '@material-ui/core';
 
 const AUTHORS = {
   ME: 'Me',
   BOT: 'Bot'
 }
-//testcommit
+
 function App(props) {
   const [messageList, setMessageList] = useState([]);
 
@@ -37,18 +39,25 @@ function App(props) {
   }, [messageList])
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <section className="Messanger_Block">
+      <div className="list">
+        <List>
+          <ListItem className="item">1 чат</ListItem>
+          <ListItem className="item">2 чат</ListItem>
+          <ListItem className="item">3 чат</ListItem>
+          <ListItem className="item">4 чат</ListItem>
+        </List>
+      </div>
+      <div className="chat">
         {messageList.map((message, index) => (
           <Mesenger key={index} text={message.text} author={message.author} />
         ))}
-
-        <form onSubmit={handleMessageSubmit}>
-          <input type="text" value={inputValue} placeholder="Введите текст..." onChange={handleMessageChange} className="text" />
-          <button>Отправить</button>
+        <form onSubmit={handleMessageSubmit} className="formArea">
+          <TextField fullWidth autoFocus id="filled-basic" value={inputValue} placeholder=" Введите текст..." onChange={handleMessageChange} className="text"> </TextField>
+          <Button variant="contained" color="primary" type="submit">Кнопка  </Button>
         </form>
-      </header>
-    </div>
+      </div>
+    </section>
   );
 }
 

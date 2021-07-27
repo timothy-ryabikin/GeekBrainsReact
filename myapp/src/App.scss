@@ -40,6 +40,7 @@
   .text {
   padding: 10px 20px;
   font-size: 20px;
+  background-color: #fff;
   }
 
   button {
@@ -52,3 +53,32 @@
     cursor: pointer;
     background-color: #61dafb;
   }
+
+  .Messanger_Block{
+    display: flex;
+
+  }
+
+  .formArea{
+    display: flex;
+
+  }
+
+  .list{
+    margin-right: 20px;
+    width: 10%;
+  }
+
+  .chat {
+    width: 90%;
+  }
+
+  .item{
+    outline: 1px solid gray;
+  }
+
+  .item:hover{
+    background-color:hotpink;
+    cursor: pointer;
+  }
+
