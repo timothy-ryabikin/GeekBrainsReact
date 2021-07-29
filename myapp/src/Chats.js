@@ -42,7 +42,7 @@ export default function Chat(props) {
                 {messageList.map((message, index) => (
                     <Mesenger key={index} text={message.text} author={message.author} />
                 ))}
-                <Input onSubmit={handleMessageSubmit}></Input>
+                <Input onSubmitFunc={handleMessageSubmit}></Input>
             </div>
         </div>
     );

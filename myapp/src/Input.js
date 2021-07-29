@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 export default function Input(props) {
     const [inputValue, setInputValue] = useState("");
 
-    const { onSubmit } = props
+    const { onSubmitFunc } = props;
 
     const handleChange = (e) => {
         setInputValue(e.target.value)
@@ -13,15 +13,15 @@ export default function Input(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (onSubmit) {
-            onSubmit(inputValue);
+        if (onSubmitFunc) {
+            onSubmitFunc(inputValue);
             setInputValue('');
         }
     }
 
     return (
         <form onSubmit={handleSubmit} className="formArea">
-            <TextField fullWidth autoFocus id="filled-basic" value={inputValue} placeholder=" Введите текст..." onChange={handleChange} className="text"> </TextField>
+            <TextField fullWidth autoFocus id="filled-basic" value={inputValue} placeholder="Введите текст..." onChange={handleChange} className="text"> </TextField>
             <Button variant="contained" color="primary" type="submit">Кнопка  </Button>
         </form>
     );
