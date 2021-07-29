@@ -7,20 +7,21 @@ export default function Input(props) {
 
     const { onSubmit } = props;
 
-    const handleMessageChange = (e) => {
+    const handleChange = (e) => {
         setInputValue(e.target.value)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
         if (onSubmit) {
-            onSubmit(inputValue)
+            onSubmit(inputValue);
+            setInputValue('');
         }
     }
 
     return (
         <form onSubmit={handleSubmit} className="formArea">
-            <TextField fullWidth autoFocus id="filled-basic" value={inputValue} placeholder=" Введите текст..." onChange={handleMessageChange} className="text"> </TextField>
+            <TextField fullWidth autoFocus id="filled-basic" value={inputValue} placeholder=" Введите текст..." onChange={handleChange} className="text"> </TextField>
             <Button variant="contained" color="primary" type="submit">Кнопка  </Button>
         </form>
     );

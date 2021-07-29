@@ -1,7 +1,7 @@
 import { Switch, Route, Link } from 'react-router-dom';
 import App from './App';
 import './App.css';
-import Chat from './Chat';
+import ChatItem from './ChatItem';
 
 export default function Router() {
     return (
@@ -20,7 +20,7 @@ export default function Router() {
                 </Route>
 
                 <Route path="/chats/:chatID" render={() =>
-                    <Chat />
+                    <ChatItem />
                 }>
                 </Route>
 

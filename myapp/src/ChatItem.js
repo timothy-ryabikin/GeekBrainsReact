@@ -1,7 +1,7 @@
 import { useParams } from 'react-router';
 import './App.css';
 
-export default function Chat(props) {
+export default function ChatItem(props) {
     const params = useParams()
 
     return (
