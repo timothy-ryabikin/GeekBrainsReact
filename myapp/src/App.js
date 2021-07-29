@@ -9,29 +9,26 @@ import Chats from './Chats'
 
 export default function App(props) {
 
-  // useEffect(() => {
-  //   if (messageList.length && messageList[messageList.length - 1].author !== AUTHORS.BOT) {
-  //     setTimeout(() => {
-  //       setMessageList((currentMessageList) => [
-  //         ...currentMessageList,
-  //         { author: AUTHORS.BOT, text: "Привет!" },
-  //       ])
-  //     }, 1500)
-  //   }
-  // }, [messageList])
+  const [chats, setChats] = useState([
+    { id: 'chat1', name: 'Чат 1' },
+    { id: 'chat2', name: 'Чат 2' },
+    { id: 'chat3', name: 'Чат 3' }]);
+
+  const [currentChat, setCurrentChat] = useState(chats[0]);
+
+  const handleChangeChat = (chat) => { setCurrentChat(chat) };
 
   return (
-    <section className="Messanger_Block">
-      <div className="list">
+    <section class="Messanger_Block">
+      <div class="list">
         <List>
-          <Link to="/chats/1"><ListItem className="item">Чат 1</ListItem></Link>
-          <Link to="/chats/2"><ListItem className="item">Чат 2</ListItem></Link>
-          <Link to="/chats/3"><ListItem className="item">Чат 3</ListItem></Link>
-          <Link to="/chats/4"><ListItem className="item">Чат 4</ListItem></Link>
+          {chats.map((chat) => {
+            return (<Link to="chats/"><ListItem className="item" onclick={() => handleChangeChat(chat)}>{chat.name}</ListItem></Link>)
+          })}
         </List>
       </div>
       <Chats />
-    </section>
+    </section >
   );
 }
 

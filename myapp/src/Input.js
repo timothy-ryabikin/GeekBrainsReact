@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 export default function Input(props) {
     const [inputValue, setInputValue] = useState("");
 
-    const { onSubmit } = props;
+    const { onSubmit } = props
 
     const handleChange = (e) => {
         setInputValue(e.target.value)
