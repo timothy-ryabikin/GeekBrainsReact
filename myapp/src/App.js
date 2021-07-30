@@ -23,7 +23,15 @@ export default function App(props) {
       <div class="list">
         <List>
           {chats.map((chat) => {
-            return (<Link to="chats/${chat.id}"><ListItem className="item" onclick={() => handleChangeChat(chat)}>{chat.name}</ListItem></Link>) //с ссылкой не выходит пока
+            return (<Link to="chats/${chat.id}">
+              <ListItem
+                className="item"
+                onclick={() => handleChangeChat(chat)}
+                key={chat.id}
+                selected={chat.id === currentChat.id}
+              >
+                {chat.name}
+              </ListItem></Link>) //с ссылкой не выходит пока
           })}
         </List>
       </div>
