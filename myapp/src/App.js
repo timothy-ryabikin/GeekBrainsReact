@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState, useCallback } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import './App.css';
-import Mesenger from './Message';
-import Button from '@material-ui/core/Button';
-import { List, ListItem, TextField } from '@material-ui/core';
-import Chats from './Chats'
+import { Provider } from "react-redux";
+import Router from './Router';
+import store from './Store';
 
 
 export default function App(props) {
@@ -18,25 +17,14 @@ export default function App(props) {
 
   const handleChangeChat = (chat) => { setCurrentChat(chat) };
 
+  const handleIsChatExist = React.useCallback((chatId) => {
+    return Boolean(chats.find((chat) => chat.id === chatId))
+  }, [chats])
+
   return (
-    <section class="Messanger_Block">
-      <div class="list">
-        <List>
-          {chats.map((chat) => {
-            return (<Link to="chats/${chat.id}">
-              <ListItem
-                className="item"
-                onclick={() => handleChangeChat(chat)}
-                key={chat.id}
-                selected={chat.id === currentChat.id}
-              >
-                {chat.name}
-              </ListItem></Link>) //с ссылкой не выходит пока
-          })}
-        </List>
-      </div>
-      <Chats />
-    </section >
+    <Provider store={store}>
+      <Router getIsChatExist={handleIsChatExist} chats={chats} currentChat={currentChat} onCurrentChatChange={setCurrentChat} />
+    </ Provider>
   );
 }
 

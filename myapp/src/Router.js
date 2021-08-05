@@ -1,9 +1,11 @@
 import { Switch, Route, Link } from 'react-router-dom';
 import App from './App';
 import './App.css';
-import ChatItem from './ChatItem';
+import Chat from './Chats';
+import Home from './Home';
+import Profile from './profile/Profile';
 
-export default function Router() {
+export default function Router(props) {
     return (
         <>
             <ul className="menu">
@@ -12,26 +14,42 @@ export default function Router() {
                 <li><Link to="/profile">Profile</Link></li>
             </ul>
             <Switch>
-                <Route path="/" exact component={App}>
+                <Route path="/" exact render={() =>
+                    <>
+                        <Home
+                            currentChat={props.currentChat}
+                            onCurrenChatChange={props.onCurrentChatChange}
+                            chats={props.chats}
+                        />
+                        <Chat />
+                    </>
+                }
+                >
                 </Route>
 
                 <Route path="/chats" exact>
                     <p>Chats</p>
                 </Route>
 
-                <Route path="/chats/:chatID" render={() =>
-                    <ChatItem />
+                <Route path="/chats/:chatId" render={() =>
+                    <>
+                        <Home
+                            currentChat={props.currentChat}
+                            onCurrenChatChange={props.onCurrentChatChange}
+                            chats={props.chats} />
+                        <Chat />
+                    </>
                 }>
                 </Route>
 
                 <Route path="/profile" exact>
-                    <p>Profile</p>
+                    <Profile />
                 </Route>
 
                 <Route>
                     404: page not found
                 </Route>
-            </Switch>
+            </Switch >
         </>
     );
 }

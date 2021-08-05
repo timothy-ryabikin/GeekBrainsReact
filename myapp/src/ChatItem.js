@@ -5,6 +5,6 @@ export default function ChatItem(props) {
     const params = useParams()
 
     return (
-        <h2>Chat id = {params.chatID}</h2>
+        <h2>Chat id = {params.chatId}</h2>
     );
 }
