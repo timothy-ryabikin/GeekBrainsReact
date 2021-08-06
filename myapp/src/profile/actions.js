@@ -1,7 +1,6 @@
-export const PROFILE_ACTION = "PROFILE::EXAMPLE_ACTION";
+export const TOGGLE_SHOW_NAME = "PROFILE::TOGGLE_SHOW_NAME";
 
-export const exampleAction = () => ({
-    type: PROFILE_ACTION
+export const toggleShowName = () => ({
+    type: TOGGLE_SHOW_NAME
 })
 
-export default exampleAction;

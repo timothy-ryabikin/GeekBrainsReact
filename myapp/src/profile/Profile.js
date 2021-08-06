@@ -1,7 +1,6 @@
 import { useCallback, useState } from "react";
 
-import { store } from "../Store";
-import { exampleAction } from "../profile/actions";
+import { toggleShowName } from "../profile/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Profile() {
@@ -11,7 +10,7 @@ export default function Profile() {
     const dispatch = useDispatch();
 
     const setShowName = useCallback(() => {
-        dispatch(exampleAction());
+        dispatch(toggleShowName());
     }, [dispatch]);
 
     return (
