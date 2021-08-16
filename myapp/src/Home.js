@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import './App.css';
-import Mesenger from './Message';
-import Button from '@material-ui/core/Button';
 import { List, ListItem, TextField } from '@material-ui/core';
-import Chat from './Chats'
+import { useDispatch, useSelector } from 'react-redux';
 
 
 export default function Home(props) {
 
-    const { currentChat, chats, onCurrentChatChange } = props
+    const { currentChat, onCurrentChatChange } = props
+
+    const chats = useSelector((state) => state.chats.chatList);
+
+    const dispatch = useDispatch();
 
     const history = useHistory();
 
@@ -23,7 +25,7 @@ export default function Home(props) {
             <div class="list">
                 <List>
                     {chats.map((chat) => {
-                        return (<Link to={`chats/${chat.id}`}>
+                        return (<Link to={`/chats/${chat.id}`}>
                             <ListItem
                                 className="item"
                                 onclick={() => {
@@ -37,7 +39,6 @@ export default function Home(props) {
                     })}
                 </List>
             </div>
-            {/* <Chat /> */}
         </section >
     );
 }

@@ -3,6 +3,8 @@ import Mesenger from './Message';
 import { List, ListItem, TextField } from '@material-ui/core';
 import { Link, useParams } from 'react-router-dom';
 import Input from './Input'
+import { useDispatch, useSelector } from 'react-redux';
+import { addMessage } from './messages/actions';
 
 export default function Chat(props) {
     const AUTHORS = {
@@ -11,6 +13,14 @@ export default function Chat(props) {
     }
 
     const [messageList, setMessageList] = useState([]);
+
+    const messages = useSelector(state => state.messages.messageList);
+
+    const profileName = useSelector(state => state.profile.name);
+
+    const { chatId } = useParams();
+
+    const dispatch = useDispatch();
 
     const timer = React.useRef(null);
 
@@ -26,9 +36,10 @@ export default function Chat(props) {
     }, [messageList])
 
     const handleMessageSubmit = (newText) => {
+        dispatch(addMessage(chatId, newText));
         setMessageList((currentMessageList) => [
             ...currentMessageList,
-            { author: AUTHORS.ME, text: newText },
+            { author: profileName, text: newText },
         ])
     }
 

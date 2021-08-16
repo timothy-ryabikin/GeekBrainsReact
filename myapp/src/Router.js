@@ -1,5 +1,4 @@
 import { Switch, Route, Link } from 'react-router-dom';
-import App from './App';
 import './App.css';
 import Chat from './Chats';
 import Home from './Home';

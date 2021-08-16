@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './App.css';
-import { Provider } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import Router from './Router';
 import store from './Store';
 
@@ -11,7 +11,8 @@ export default function App(props) {
   const [chats, setChats] = useState([
     { id: 'chat1', name: 'Чат 1' },
     { id: 'chat2', name: 'Чат 2' },
-    { id: 'chat3', name: 'Чат 3' }]);
+    { id: 'chat3', name: 'Чат 3' }
+  ]);
 
   const [currentChat, setCurrentChat] = useState(chats[0]);
 
